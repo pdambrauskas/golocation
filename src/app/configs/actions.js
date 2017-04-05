@@ -1,0 +1,6 @@
+export const PIN_CLICK = 'PIN_CLICK'
+export const NAVIGATION_CLICK = 'NAVIGATION_CLICK'
+export const LOCATION_CLICK = 'LOCATION_CLICK'
+export const CLOSE_DETAILS = 'CLOSE_DETAILS'
+export const ONBOARD = 'ONBOARD'
+export const LOCATION_STATUS = 'LOCATION_STATUS'
