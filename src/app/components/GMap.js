@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { GoogleMap, Marker, withGoogleMap } from 'react-google-maps'
 
 const SimpleMap = withGoogleMap(props => (
-  <GoogleMap defaultZoom={13}
+  <GoogleMap defaultZoom={10}
     defaultCenter={props.center}>
     { props.locations.map((location, index) => (
       <Marker
@@ -22,7 +22,7 @@ class GMap extends Component {
 
   render() {
     let {locations, clickPin} = this.props
-    let center = { lat: 54.600312, lng: 24.034102 }
+    let center = { lat: 54.720520, lng: 24.034102 }
     // TODO : center to user location
     return (
       <SimpleMap

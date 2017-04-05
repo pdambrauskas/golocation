@@ -45,17 +45,23 @@ body {
 }
 
 .hero {
-  width: 128px;
-  height: 128px;
-  display: block;
-  position: fixed;
-  background: url('imgs/hero.png');
-  z-index: 9999;
+  display: none;
 }
 
-.hero--bottom {
-  bottom: 0;
-  left: 24px;
+@media screen and (min-height: 400px ){
+  .hero {
+    width: 128px;
+    height: 128px;
+    display: block;
+    position: fixed;
+    background: url('imgs/hero.png?v=3');
+    z-index: 9999;
+  }
+
+  .hero--bottom {
+    bottom: 0;
+    left: 24px;
+  }
 }
 
 .error {
