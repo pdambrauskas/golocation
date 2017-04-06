@@ -4,9 +4,17 @@ import Subheader from 'material-ui/Subheader';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 
-const locationsIcon = <IconLocationOn />;
-
 class LocationList extends Component {
+  locationIcon(location) {
+    switch(location.type) {
+      case 'cake':
+        return <img src={'imgs/cake.png'} className={'typeicon'}/>
+      case 'horses':
+        return <img src={'imgs/horse.png'} className={'typeicon'}/>
+      default:
+        return <IconLocationOn />
+    }
+  }
   render() {
     let {locations, clickLocation} = this.props
 
@@ -17,7 +25,7 @@ class LocationList extends Component {
           <ListItem
             key={index}
             onTouchTap={ (e) => {e.preventDefault(); clickLocation(index) }}
-            leftIcon={locationsIcon}
+            leftAvatar={this.locationIcon(location)}
             rightIcon={location.visited ? <ActionDone /> : null}
             primaryText={location.name}
             secondaryText={location.distance ? location.distance.toFixed(2) + ' km': '' }

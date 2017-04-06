@@ -44,6 +44,10 @@ body {
   padding: 0 24px 24px;
 }
 
+.typeicon {
+  height: 40px;
+}
+
 .hero {
   display: none;
 }
