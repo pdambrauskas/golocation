@@ -42,7 +42,7 @@ class CheckinDialog extends Component {
     const actions = [
       <FlatButton
         label="Atšaukti"
-        onTouchTap={() => this.hide()}
+        onTouchTap={(e) => {e.preventDefault(); this.hide() }}
       />,
       <FlatButton
         label="Buvau!"
@@ -61,6 +61,7 @@ class CheckinDialog extends Component {
           modal={false}
           open={true}
           onRequestClose={() => this.hide()}
+          autoScrollBodyContent={true}
         >
           <p>{location.question}</p>
           { textField }
