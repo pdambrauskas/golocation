@@ -9,7 +9,7 @@ const SimpleMap = withGoogleMap(props => (
         key={index}
         position={{lng: location.lon, lat: location.lat}}
         title={location.name}
-        onClick={() => props.onPinClick(index)}
+        onClick={() => props.onPinClick(location.id)}
       />
     ))}
   </GoogleMap>

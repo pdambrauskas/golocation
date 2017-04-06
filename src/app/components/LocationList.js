@@ -24,7 +24,7 @@ class LocationList extends Component {
         { locations.map((location, index) => (
           <ListItem
             key={index}
-            onTouchTap={ (e) => {e.preventDefault(); clickLocation(index) }}
+            onTouchTap={ (e) => {e.preventDefault(); clickLocation(location.id) }}
             leftAvatar={this.locationIcon(location)}
             rightIcon={location.visited ? <ActionDone /> : null}
             primaryText={location.name}

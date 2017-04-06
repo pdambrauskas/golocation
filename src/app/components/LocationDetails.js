@@ -2,8 +2,25 @@ import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import CheckinDialog from '../containers/CheckinContainer'
+const styles = {
+  dialogRoot: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: 0,
+  },
+  dialogContent: {
+    position: "relative",
+    width: "90vw",
+    transform: "",
+  },
+  dialogBody: {
+    padding: 0
+  }
+};
 
 class LocationDetails extends Component {
+
   constructor(props) {
     super(props)
     this.showQuestion = this.showQuestion.bind(this)
@@ -42,12 +59,16 @@ class LocationDetails extends Component {
         <Dialog
             title={location.name}
             actions={actions}
-            modal={false}
             open={true}
             onRequestClose={closeDetails}
-            contentStyle={{width: '95%'}}
-            bodyClassName="location"
+            // contentStyle={{width: '95%'}}
+            contentStyle={ styles.dialogContent }
+            bodyStyle={ styles.dialogBody }
+            style={ styles.dialogRoot }
+            repositionOnUpdate={ false }
+            // bodyClassName="location"
             autoScrollBodyContent={true}
+            repositionOnUpdate={false}
           >
 
           <img

@@ -31,12 +31,14 @@ class CheckinDialog extends Component {
     let { location, error, checkin, open } = this.props
     if (!open && !error) return null;
 
-    const textField = <form onSubmit={() => this.proceed()}>
+    const textField = <form onSubmit={() => this.proceed()}  autoComplete={'off'}>
       <TextField
         id="question"
         fullWidth={true}
         onChange={this.changeAnswer}
+        onBlur={ () => window.dispatchEvent(new Event('resize')) }
         errorText={error ? error.result : null }
+        autoComplete="off"
       />
     </form>
     const actions = [
@@ -56,14 +58,12 @@ class CheckinDialog extends Component {
       <div>
         <div className="hero hero--bottom"></div>
         <Dialog
-          title="Vat įrodyk, kad buvai."
           actions={actions}
-          modal={false}
           open={true}
           onRequestClose={() => this.hide()}
           autoScrollBodyContent={true}
         >
-          <p>{location.question}</p>
+          {location.question}
           { textField }
         </Dialog>
       </div>

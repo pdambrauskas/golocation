@@ -50,7 +50,6 @@ class UserDialog extends Component {
       <div>
         <div className="hero hero--bottom"></div>
         <Dialog
-          title={location.name}
           actions={actions}
           modal={false}
           open={true}

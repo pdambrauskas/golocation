@@ -4,7 +4,7 @@ import * as locationDetailsActions from '../actions/locationDetails';
 
 function mapStateToProps(state) {
   return {
-    location: state.locations.data[state.navigation.activeLocation]
+    location: state.locations.data.filter((loc) => loc.id == state.navigation.activeLocation)[0]
   }
 }
 
