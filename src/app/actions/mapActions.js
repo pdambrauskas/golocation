@@ -7,11 +7,4 @@ function clickPin(locationIndex) {
   }
 }
 
-function locationStatus(status) {
-  return {
-    locationAvailable: status,
-    type: ActionTypes.LOCATION_STATUS
-  }
-}
-
-export { clickPin, locationStatus };
+export { clickPin };

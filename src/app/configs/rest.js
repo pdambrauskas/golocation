@@ -7,7 +7,7 @@ import {updateLocation} from '../configs/utils'
 
 export default reduxApi({
   locations: {
-    url: "https://pasikark.eu/ruta/locations.php",
+    url: "https://pavasaris.info/api/locations.php",
     transformer: transformers.array,
     headers: {
         'Accept': 'application/json'
@@ -15,11 +15,11 @@ export default reduxApi({
   },
   users: {
     reducerName: 'user',
-    url: "https://pasikark.eu/ruta/users.php",
+    url: "https://pavasaris.info/api/users.php",
     postfetch: [
       function ({data}) {
         if (!cookie.load('user_id'))
-          cookie.save('user_id', data.id)
+          cookie.save('user_id', data.id, { maxAge: 172800 })
       }
     ],
     options: {
@@ -31,14 +31,13 @@ export default reduxApi({
     }
   },
   user: {
-    url: "https://pasikark.eu/ruta/users.php"
+    url: "https://pavasaris.info/api/users.php"
   },
   checkin: {
-    url: "https://pasikark.eu/ruta/checkin.php",
+    url: "https://pavasaris.info/api/checkin.php",
     postfetch: [
       function({ dispatch, actions, data}) {
         if (data.correct) {
-          console.log('update checks');
           setTimeout(()=> { updateLocation(dispatch, cookie.load('user_id')) }, 0)
         }
       },

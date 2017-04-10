@@ -34,7 +34,7 @@ class UserDialog extends Component {
 
     const textField = <form onSubmit={() => this.proceed()}>
       <TextField
-        hintText="Labas, kuo tu vardu"
+        hintText="Labas, kuo tu vardu?"
         fullWidth={true}
         onChange={this.changeName} />
     </form>

@@ -36,7 +36,6 @@ class CheckinDialog extends Component {
         id="question"
         fullWidth={true}
         onChange={this.changeAnswer}
-        onBlur={ () => window.dispatchEvent(new Event('resize')) }
         errorText={error ? error.result : null }
         autoComplete="off"
       />

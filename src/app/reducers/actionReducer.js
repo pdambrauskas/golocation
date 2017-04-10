@@ -29,12 +29,6 @@ export default function actionReducer(state={}, action) {
         onboarded: true
       }
 
-    case Actions.LOCATION_STATUS:
-      return {
-        ...state,
-        locationStatus: action.locationAvailable
-      }
-
     default:
       return state;
   }

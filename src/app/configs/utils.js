@@ -25,7 +25,7 @@ function changeName(name) {
 
 function saluteForName(name) {
   var processedName = name.trim().toLowerCase().replace('ą', 'a').replace('č', 'c').replace('ę', 'e').replace('ė', 'e').replace('į', 'i').replace('š', 's').replace('ų', 'u').replace('ū', 'u').replace('ž', 'z');
-  var defautlSaluteEnd = 'O čia tu, {0}, labas :)';
+  var defautlSaluteEnd = 'O čia tu, {0}, labas!';
   var changedName = changeName(name);
   changedName = changedName.charAt(0).toUpperCase() + changedName.slice(1);
 

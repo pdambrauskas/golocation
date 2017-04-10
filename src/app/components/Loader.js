@@ -10,7 +10,7 @@ class Loader extends Component {
       <Dialog
           modal={false}
           open={this.props.open}>
-          <CircularProgress size={30} thickness={4} /> Tu palauk, palauk..
+          <CircularProgress size={30} thickness={4} /> Tu palauk palauk..
         </Dialog>
     );
   }

@@ -25,7 +25,11 @@ const mapIcon = <MapIcon />;
 const locationsIcon = <IconLocationOn />;
 
 function select(state) {
-  return { navigation: state.navigation, loading: state.user.loading || state.checkin.loading };
+  return {
+    navigation: state.navigation,
+    loading: state.user.loading || state.checkin.loading,
+    knownLocation: state.locations.data.length >  0 && state.locations.data[0].distance
+  }
 }
 
 class CMain extends Component {
@@ -41,7 +45,7 @@ class CMain extends Component {
   };
 
   render() {
-    let {navigation, loading, clickViewButton} = this.props
+    let {navigation, knownLocation, loading, clickViewButton} = this.props
 
     if (loading) {
       return(
@@ -52,9 +56,9 @@ class CMain extends Component {
     }
     let locationStatus = ''
 
-    if (!navigation.locationStatus) {
+    if (!knownLocation) {
       locationStatus = <div className={'error'}>
-        Nepavyksta nustatyti vietos :(, patikrink vietovės nustatymus.
+        Nepavyksta nustatyti lokacijos, pasitikrinkite nustatymus.
       </div>
     }
     return (

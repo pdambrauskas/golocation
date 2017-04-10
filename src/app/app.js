@@ -37,7 +37,6 @@ class App extends Component {
 
   updateCurrentLocation() {
     if (!navigator.geolocation) {
-      store.dispatch(mapActions.locationStatus(false))
       return
     }
 
@@ -46,17 +45,12 @@ class App extends Component {
         let prevLocation = this.location
         this.location = {lat: position.coords.latitude, lon: position.coords.longitude}
 
-        // Update list as soon as we have first location
-        if (!prevLocation.lat && cookie.load('user_id')) {
+        if (!prevLocation.lat) {
           console.log('updating with location')
-          store.dispatch(mapActions.locationStatus(true))
           setTimeout(this.dispatchLocation, 0)
         }
       },
       () => {
-        if (!this.location.lat) {
-          store.dispatch(mapActions.locationStatus(false))
-        }
         console.log('failed fetching location');
       },
       {
